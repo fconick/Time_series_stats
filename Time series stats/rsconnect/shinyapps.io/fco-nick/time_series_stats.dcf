@@ -1,0 +1,11 @@
+name: time_series_stats
+title: Time_series_stats
+account: fco-nick
+server: shinyapps.io
+appId: 186577
+bundleId: 856221
+url: https://fco-nick.shinyapps.io/time_series_stats/
+when: 1496803952.80806
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Data/DATABASE_example.csv

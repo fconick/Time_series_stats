@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Plot the stats that you want by Team\nlibrary(tidyverse)\nlibrary(magrittr)\nlibrary(stringr)\n\n#DB <- read.csv(file = 'DATABASE_example.csv', stringsAsFactors = F)\n# team <- 'Chelsea'\n# Stat <- 'Goals_Scored'\n# name_stat <- 'Goals Scored'\n# date_inf <- as.Date('2013-06-01')\n# date_sup <- as.Date('2017-06-01')\n\nTime_series <- function(DATA, team,  Stat, name_stat, date_inf, date_sup){\n  \n  #Setting\n  theme_set(theme_minimal())\n  nice_palette <- c('#00A1CB', '#E54028', '#61AE24', '#616161')\n  \n  #Subset Data\n  DATA$Date %<>%  as.Date\n  DATA <- subset(DATA, Team==team & Date >= date_inf & Date <= date_sup)\n  DATA$Date %<>%  as.Date\n  \n  #Add the Label for the Teams in the plot\n  DATA$Label <- abbreviate(DATA$Opponent, minlength = 4, use.classes = F,\n                           dot = FALSE, strict = FALSE,\n                           method = c(\"left.kept\", \"both.sides\"),\n                           named = TRUE)\n  \n  plot <- ggplot(data = DATA, aes_string(y = Stat, group = 'League',\n                                          x =\"Date\"))  + \n    geom_smooth(colour = '#616161', alpha = .08,size =.2, method ='loess',\n                span =.99, level = .5, linetype = 2) +\n    geom_line( show.legend = F, colour = 'gray')  +\n    geom_point(aes(colour = H_A)) +\n    geom_text(aes(label = Label, colour = H_A), show.legend = F,\n              nudge_y = .3, nudge_x = -.3 ,check_overlap =  T ) +\n    scale_color_manual(values = nice_palette) +\n    labs( y = name_stat, x= '', colour = \"\")\n    \n  print(plot) \n  \n  \n}\n\n\n\n\n",
+    "created" : 1496768211738.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "146472746",
+    "id" : "7E9E9039",
+    "lastKnownWriteTime" : 1496861268,
+    "last_content_update" : 1496861268592,
+    "path" : "~/Time_series_stats/Time series stats/Functions/Time_series.R",
+    "project_path" : "Time series stats/Functions/Time_series.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

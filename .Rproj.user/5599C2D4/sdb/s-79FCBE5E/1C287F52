@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#------------------------------------------------------------------------------\n#                        Pre-process Data\n#------------------------------------------------------------------------------\n\nDB <- readRDS(file = './Data/DATABASE.RDS')\n\nDB_Mex <- read.csv(file ='~/SOCCER_SCRAPER/reports/MEX-Ascenso MX/DATABASES/RESULTS.csv')\n\n# Data <- read.csv(file = '~/Results_Scraper/ALL LEAGUES/All_leagues.csv')\ngeneral_vars <- c('id', 'Country', 'Date', 'Country', 'League', 'Extra')\nHome_vars <- c('Home', 'G_Home')\nAway_vars <- c('Away', 'G_Away')\nRename <- c( 'Goals')\n\nDB_MEX <- Data_by_team(DB_Mex, Home_vars, Away_vars, Rename) %>% \n  rename(Id =  id) %>% select (-Country, -Extra)\n\nDB1 <- bind_rows(DB, DB_MEX)\nDB1$Dif <- DB1$Goals_Scored -DB1$Goals_Received\n\nDB1$League_G <- DB1$League %>% str_sub(1,-11)\n\nsaveRDS(DB1, file = './Data/DATABASE.RDS')\n\nhead(DB1)\n\nhead(DB)\n\nDB %<>% subset(League_G%in% c(\"Premier League \", \"LaLiga \", \"Liga de Ascenso\",\n                              'Primera Division')) \n",
+    "created" : 1496765601741.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1846447899",
+    "id" : "1C287F52",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1496799369676,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

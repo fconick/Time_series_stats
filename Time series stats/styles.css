@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Rock+Salt" rel="stylesheet');
+
+h4 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #00A1CB;
+}
+
+h2 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #01A4A4;
+}
+
+body {
+  background-color: #fff;
+}

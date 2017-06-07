@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Rock+Salt\" rel=\"stylesheet');\n\nh4 {\n  font-family: 'Gloria Hallelujah', cursive;\n  font-weight: 300;\n  line-height: 1.1;\n  color: #00A1CB;\n}\n\nh2 {\n  font-family: 'Gloria Hallelujah', cursive;\n  font-weight: 500;\n  line-height: 1.1;\n  color: #01A4A4;\n}\n\nbody {\n  background-color: #fff;\n}",
+    "created" : 1496864225872.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2894729001",
+    "id" : "CEFE9C3B",
+    "lastKnownWriteTime" : 1496865033,
+    "last_content_update" : 1496865033112,
+    "path" : "~/Time_series_stats/Time series stats/styles.css",
+    "project_path" : "Time series stats/styles.css",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "css"
+}

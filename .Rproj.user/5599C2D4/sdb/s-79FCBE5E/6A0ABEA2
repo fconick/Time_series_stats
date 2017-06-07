@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Load library\nlibrary(shiny)\n\n#Load data\nDB <- readRDS(file = './Data/DATABASE.RDS')\nDB$Date %<>% as.Date \n\n\n# Define server logic required to draw a histogram\nshinyServer(function(input, output) {\n\n  #Run Functions\n  source('Functions/Time_series.R')\n  source('Functions/Summary_DB.R')\n  \n  # 1.-Reactive subset according to user choices\n  DB1 <- reactive({\n    filter(DB, Date >= input$daterange[1] , Date <= input$daterange[2],\n           League_G ==  input$League_G)\n  })\n\n  # 2.- Reactive selection for TEAMS\n  output$secondSelection <- renderUI({\n    selectInput(\"Team\", h4(\"Team:\"), \n                choices = DB1()$Team %>%\n                  unique %>% sort)\n  })\n   \n  # 3.-  Create the plot using the functions loaded\n  output$distPlot <- renderPlot({\n     Time_series(DB1(), input$Team, input$Stat, '', input$daterange[1], input$daterange[2])\n  })\n\n   \n  # 4.- League summary for the period selected\n  output$SummaryLeague <- renderTable({\n    Summary_DB(DB1())\n  })\n  \n    \n})\n",
+    "created" : 1496691049030.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1456580207",
+    "id" : "6A0ABEA2",
+    "lastKnownWriteTime" : 1496864759,
+    "last_content_update" : 1496864759705,
+    "path" : "~/Time_series_stats/Time series stats/server.R",
+    "project_path" : "Time series stats/server.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

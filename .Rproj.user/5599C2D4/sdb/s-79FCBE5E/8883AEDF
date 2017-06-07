@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n\nSummary_DB <- function(DB){\n  \n  DB %<>% summarise(\n    `Home Team wins` = ((sum(Dif>0 & H_A == 'Home')/ sum(H_A == 'Home')) %>% round(2) * 100) %>% paste0('%'),\n    Draws = (mean(Dif == 0) %>% round(2) * 100) %>% paste0('%') ,  \n    `Away Team wins` = ((sum(Dif>0 & H_A == 'Away')/ sum(H_A == 'Away')) %>% round(2) * 100) %>% paste0('%'),\n    Avg.Goals.per.match = mean(Goals_Scored + Goals_Received) %>% round(2)\n    ) %>% t() %>% data.frame \n  \n  cbind(`.`=rownames(DB), DB)\n}",
+    "created" : 1496861278113.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "340402005",
+    "id" : "8883AEDF",
+    "lastKnownWriteTime" : 1496865373,
+    "last_content_update" : 1496865373906,
+    "path" : "~/Time_series_stats/Time series stats/Functions/Summary_DB.R",
+    "project_path" : "Time series stats/Functions/Summary_DB.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

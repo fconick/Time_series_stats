@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlibrary(shiny)\n\nDB <- readRDS(file = './Data/DATABASE.RDS')\nDB$Date %<>% as.Date \n# Define UI for application that draws a histogram\nshinyUI(fluidPage(theme = \"bootstrap.css\",\n  \n  # Application title\n  includeCSS(\"styles.css\"),\n\n  \n  # Sidebar with a slider input for number of bins \n  sidebarLayout(\n    sidebarPanel( width = 3,\n      \n      selectInput(\"League_G\", label = h4(\"League:\"), \n                             choices = unique(DB$League_G), selected = 1),\n                 \n      dateRangeInput(\"daterange\", \"Date range :\", \n                     start = \"2016-01-29\",\n                     end = Sys.Date()),\n      \n  \n      h6(tableOutput(\"SummaryLeague\"), align = \"right\"),\n      \n      \n     \n      uiOutput(\"secondSelection\"), \n                 \n      selectInput(\"Stat\", label = h4('Statistic:'), \n                             choices = c('Goals Difference'=\"Dif\", \n                                         'Goals Scored'='Goals_Scored',\n                                         'Goals Received'='Goals_Received'),\n                             selected = 1)\n                 \n      \n    ),\n    \n    # Show a plot of the generated distribution\n    mainPanel(\n      headerPanel(h2(\"Time series for Soccer Teams\", align = \"center\")),\n       plotOutput(\"distPlot\")\n       \n    )\n  )\n))\n",
+    "created" : 1496865403234.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1477065674",
+    "id" : "E177C4D4",
+    "lastKnownWriteTime" : 1496865297,
+    "last_content_update" : 1496865297,
+    "path" : "~/Time_series_stats/Time series stats/ui.R",
+    "project_path" : "Time series stats/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
